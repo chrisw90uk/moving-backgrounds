@@ -1,0 +1,54 @@
+html,body{
+	margin:0;
+}
+*{
+	box-sizing:border-box;
+}
+p{
+	line-height:2;
+	font-size:24px;
+}
+
+.home{
+	&__panels{
+		width:50%;
+		height: calc(100% + 1px);
+		position: fixed;
+		overflow:hidden;
+	}
+	&__panel{
+		position:absolute;
+		height:100%;
+		width:100%;
+		transform: translateX(-100%);
+		transition:0.4s;
+		.panel__image{
+			//background in its own container so it doesn't inherit transition time of parent
+			height:100%;
+			width:100%;
+			background-size: auto 100%;
+			background-position: 0 0;
+		}
+		&.section-1 .panel__image{
+			background-image: url(../img/bg.jpg);
+		}
+		&.section-2 .panel__image{
+			background-image: url(../img/bg-2.jpg);
+		}
+		&.section-3 .panel__image{
+			background-image: url(../img/bg-3.jpg);
+		}
+		&.active{
+			transform: translateX(0);
+		}
+		&.scrolled{
+			transform: translateX(100%);
+		}
+	}
+	&__content{
+		width:50%;
+		margin-left:50%;
+		height:auto;
+		padding:50px 30px;
+	}
+}
