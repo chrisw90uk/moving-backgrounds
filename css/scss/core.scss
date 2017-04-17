@@ -3,11 +3,108 @@ html,body{
 }
 *{
 	box-sizing:border-box;
+	margin-top:0;
+}
+
+blockquote{
+	margin:0;
+	overflow:hidden;
+	position:relative;
+	height:33.333%;
+	color:#fff;
+	z-index:2;
+	transition: all 0.5s;
+	opacity:0;
+	&.open{
+		opacity:1;
+		p{
+			top:0;
+		}
+	}
+	p{
+		top:30%;
+		position:absolute;
+		width:100%;
+		font-size: 26px;
+		line-height:1.5;
+		font-style: italic;
+		text-align:left;
+		transition: all 0.5s;
+	}
+	cite{
+		width:100%;
+		position:absolute;
+		font-family: body-font;
+		font-size:16px;
+		text-align:right;
+		top:110%;
+		right:0;
+	}
+	&:hover{
+		transform: translateX(30px);
+	}
+}
+
+//buttons
+
+.button{
+	display:inline-block;
+	cursor:pointer;
+	font-family: main-font;
+	font-size:24px;
+	background: #FA2B2B;
+	padding:12px 14px;
+	margin: 0 auto;
+	min-width:150px;
+	transition: 0.2s;
+	color:#FFF;
+	text-decoration:none;
+	&:hover{
+		background: darken(#FA2B2B,10%);
+	}
+}
+
+
+//typography
+
+@font-face {
+    font-family: main-font;
+    src: url(fonts/norwester.otf);
+}
+@font-face {
+    font-family: body-font;
+    src: url(fonts/Lato-Regular.ttf);
+}
+
+h1,h2,h3,h4{
+	font-family:main-font;
+	margin-bottom:30px;
+	text-align:center;
+	line-height:1.2;
+}
+h1{
+	font-size: 55px;
+	margin-bottom:50px;
+}
+h2{
+	font-size: 40px;
+}
+h3{
+	font-size: 30px;
+}
+h4{
+	font-size: 24px;
+}
+a{
+	color:inherit;
 }
 p{
+	font-family: body-font;
 	line-height:2;
-	font-size:24px;
+	font-size:18px;
 }
+
+
 
 .home{
 	&__panels{
@@ -22,13 +119,6 @@ p{
 		width:100%;
 		transform: translateX(-100%);
 		transition:0.4s;
-		.panel__image{
-			//background in its own container so it doesn't inherit transition time of parent
-			height:100%;
-			width:100%;
-			background-size: auto 100%;
-			background-position: 0 0;
-		}
 		&.section-1 .panel__image{
 			background-image: url(../img/bg.jpg);
 		}
@@ -37,6 +127,9 @@ p{
 		}
 		&.section-3 .panel__image{
 			background-image: url(../img/bg-3.jpg);
+		}
+		&.section-4 .panel__image{
+			background-image: url(../img/bg-4.jpg);
 		}
 		&.active{
 			transform: translateX(0);
@@ -50,5 +143,34 @@ p{
 		margin-left:50%;
 		height:auto;
 		padding:50px 30px;
+	}
+}
+
+.panel{
+	&__image{
+		//background in its own container so it doesn't inherit transition time of parent
+		height:100%;
+		width:100%;
+		background-size: auto 100%;
+		background-position: 0 0;
+		position:relative;
+	}
+	&__quotes{
+		height:100%;
+	}
+}
+
+
+//modifiers
+
+.padding{
+	&--std{
+		padding:80px;
+	}
+}
+.background{
+	&--red{
+		background: #BD1818;
+		color: #FFF;
 	}
 }

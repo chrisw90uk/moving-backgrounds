@@ -27,7 +27,22 @@ $(document).ready(function(){
 			}
 		}
 		
-		if(scrollPos > $(".home__content.section-3").offset().top){
+		//add quotes
+		
+		var addQuotes = function(){
+			$(".panel__quotes blockquote").each(function(i){
+				var that = this;
+				setTimeout(function(quote){
+					$(that).addClass("open");
+				}, 500*i);
+			});
+		}
+		
+		if(scrollPos > $(".home__content.section-4").offset().top){
+			backgroundChange("section-4");
+			backgroundMove("section-4");
+			addQuotes();
+		}else if(scrollPos > $(".home__content.section-3").offset().top){
 			backgroundChange("section-3");
 			backgroundMove("section-3");
 		}else if(scrollPos > $(".home__content.section-2").offset().top){
